@@ -9,12 +9,11 @@ class SessionController {
       password: Yup.string().required(),
     })
 
-      // const msgError = () => {
-      //   return response
-      //     .status(400)
-      //     .json({ error: 'Please, check your e-mail and password!' })
-      // }
-
+    // const msgError = () => {
+    //   return response
+    //     .status(400)
+    //     .json({ error: 'Please, check your e-mail and password!' })
+    // }
 
     if (!(await schema.isValid(request.body))) {
       return response
@@ -35,13 +34,17 @@ class SessionController {
     }
 
     if (!(await user.checkPassword(password))) {
-        return response
-          .status(401)
-          .json({ error: 'Please, check your e-mail and password!' })
-      }
+      return response
+        .status(401)
+        .json({ error: 'Please, check your e-mail and password!' })
+    }
 
-
-      return response.json({ id: user.id, name: user.name, email, admin: user.admin })
+    return response.json({
+      id: user.id,
+      email,
+      name: user.name,
+      admin: user.admin,
+    })
   }
 }
 
