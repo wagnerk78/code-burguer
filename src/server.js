@@ -2,8 +2,8 @@
 
 import app from './app'
 
-const my_app = 'olá'
+// const my_app = 'olá'
 
-console.log(my_app)
+// console.log(my_app)
 
 app.listen(3000)

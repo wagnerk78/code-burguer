@@ -9,6 +9,13 @@ class SessionController {
       password: Yup.string().required(),
     })
 
+      // const msgError = () => {
+      //   return response
+      //     .status(400)
+      //     .json({ error: 'Please, check your e-mail and password!' })
+      // }
+
+
     if (!(await schema.isValid(request.body))) {
       return response
         .status(400)
@@ -32,8 +39,6 @@ class SessionController {
           .status(401)
           .json({ error: 'Please, check your e-mail and password!' })
       }
-
-
 
 
       return response.json({ id: user.id, name: user.name, email, admin: user.admin })
