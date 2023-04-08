@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
 import * as Yup from 'yup'
+import jwt from 'jsonwebtoken'
+import Autoconfig from '../../config/auth'
 import User from '../models/User'
 
 class SessionController {
@@ -44,6 +46,9 @@ class SessionController {
       email,
       name: user.name,
       admin: user.admin,
+      token: jwt.sign({id: user.id}, Autoconfig.secret, {
+        expiresIn: Autoconfig.expiresIn,
+      })
     })
   }
 }
