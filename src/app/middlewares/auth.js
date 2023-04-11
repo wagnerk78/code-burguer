@@ -22,7 +22,7 @@ export default (request, response, next) => {
 
     })
   } catch (err) {
-    return response.status(401).json({ error: 'Token not 2provided!' })
+    return response.status(401).json({ error: 'Token not provided!' })
   }
   
 
