@@ -34,7 +34,7 @@ class CategoryController {
     })
 
     if (categoryExists) {
-      return response.status(400).json({ error: 'Categoy already exists '})
+      return response.status(400).json({ error: 'Category already exists '})
     }
 
     const { id } = await Category.create({ name, path })

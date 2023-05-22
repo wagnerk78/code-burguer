@@ -20,7 +20,7 @@ class App {
     )
 
     this.app.use(
-      'category-file',
+      '/category-file',
       express.static(resolve(__dirname, '..', 'uploads'))
     )
   }

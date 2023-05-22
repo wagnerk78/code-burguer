@@ -6,7 +6,7 @@ export default (request, response, next) => {
   const authToken = request.headers.authorization
 
   if (!authToken) {
-    return response.status(401).json({ error: 'Token not provided!' })
+    return response.status(401).json({ error: 'Token not provided! - 1' })
   }
   const token = authToken.split(' ')[1]
 
@@ -23,7 +23,7 @@ export default (request, response, next) => {
 
     })
   } catch (err) {
-    return response.status(401).json({ error: 'Token not provided!' })
+    return response.status(401).json({ error: 'Token not provided! -2' })
   }
   
 
